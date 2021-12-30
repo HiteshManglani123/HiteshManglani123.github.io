@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .grid-board {
+    display: grid;
+    grid-template-columns: repeat(10, 10);
+    grid-gap: 0;
+    align-self: flex-start;
+  }

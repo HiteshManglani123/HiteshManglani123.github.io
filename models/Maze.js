@@ -9,15 +9,16 @@ const mazeSchema = new mongoose.Schema({
   },
   mazeBoard: [
     [
-      {
-        type: Number,
-        required: true,
-      },
+
     ],
   ],
   date: {
     type: Date,
     default: Date.now,
+  },
+  typeOfAlgorithm: {
+    type: String,
+    required: true,
   },
 });
 

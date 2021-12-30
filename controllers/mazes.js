@@ -16,10 +16,10 @@ mazeRouter.post('/', checkJwt, (request, response) => {
   if (body == undefined) {
     return response.status(400).json({error: 'content-missing'});
   }
-
   const maze = new Maze({
     usernameId: body.usernameId,
     mazeBoard: body.mazeBoard,
+    typeOfAlgorithm: body.typeOfAlgorithm,
   });
 
   maze.save();
@@ -33,6 +33,17 @@ mazeRouter.get('/:id', async (request, response) => {
   const mazes = await Maze.find({'usernameId': id});
 
   response.json(mazes);
+});
+
+mazeRouter.get('/stats/:id', async (request, response) => {
+  const id = request.params.id;
+  const mazes = await Maze.find({'usernameId': id});
+  const dijkstraMazes = mazes.filter((maze) =>
+    maze.typeOfAlgorithm === 'Dijkstras');
+  const aStarMazes = mazes.filter((maze) => maze.typeOfAlgorithm === 'aStar');
+
+  response.json({totalMazes: mazes.length, dijkstraMazes: dijkstraMazes.length,
+    aStarMazes: aStarMazes.length});
 });
 
 module.exports = mazeRouter;
