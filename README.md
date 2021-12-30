@@ -29,7 +29,7 @@ npm install
 ```
 npm run dev
 ```
-5. Go to one of the routes (found in controller) f.e: localhost:5001/api/mazes
+5. Go to one of the routes (found in controller) f.e: localhost:5001/api/grids
 
 
 # Contributions

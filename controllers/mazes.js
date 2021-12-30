@@ -1,6 +1,6 @@
 /* eslint-disable new-cap */
 const mazeRouter = require('express').Router();
-const Maze = require('../models/maze');
+const Maze = require('../models/Maze');
 const {checkJwt} = require('../authz/check-jwt');
 // const mongoose = require('mongoose');
 
